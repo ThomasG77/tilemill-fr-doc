@@ -18,19 +18,19 @@ Un SIG signifie Système d'Information Géographique et fait référence à tous
 
 ## Projections cartographiques
 
-**Projections** refer to the method used for representing a three-dimensional object like the Earth on a two-dimensional surface like a sheet of paper or a computer screen. While TileMill maps are always projected as ‘Web Mercator’ you will come across data sources that use [many different projections](http://en.wikipedia.org/wiki/Map_projection).
+**Les projections** font références aux méthodes utilisées pour représenter un objet en trois dimensions comme la Terre sur une surface en deux dimensions comme une feuille de papier ou un écran d'ordinateur. Bien que les cartes TileMill soient toujours projetées en ‘Web Mercator’, il vous arrivera de croiser des sources de données qui utilisent [d'autres projections](http://en.wikipedia.org/wiki/Map_projection).
 
-**Coordinate systems** provide ways of describing a specific location on the earth. For example, you can describe the location of Washington, DC with its latitude and longitude approximately `(38,-77)`. Another method of describing its location might be to provide the *number of meters to Washington, DC north and west from the Equator* - and some coordinate systems do exactly that.
+**Les coordonnées systèmes** fournissent un moyen de décrire un emplacement particulier sur Terre. Par exempel, vous pouvez indiquer la position de Washington, DC avec sa latitude et sa longitude approximatives `(38,-77)` Une autre manière de décrire cette position pourrait être d'indiquer le *nombre de mètres entre Washington, DC par rapport au nord et à l'est de l'équateur* - et certains systèmes de coordonnées fonctionnent exactement comme cela.
 
-The **[proj4](http://trac.osgeo.org/proj/) SRS string** (spatial referencing system) combines these two concepts and provides a way to describe the projection and coordinate system of a datasource at once. For example, the [WGS84](http://en.wikipedia.org/wiki/World_Geodetic_System) proj4 SRS looks like this:
+La **chaîne SRS de [proj4](http://trac.osgeo.org/proj/)** (Spatial Referencing System) combine ces deux concepts et fournit en même temps une description de la projection et des coordonnées système d'une source de données. Par exemple, la chaîne SRS de proj4 [WGS84](http://en.wikipedia.org/wiki/World_Geodetic_System) ressemble à ceci:
 
     +proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs
 
-TileMill can generally autodetect the SRS of shapefiles and other datasources. You may need to provide an SRS string for some datasources if TileMill cannot autodetect the value.
+TileMill peut généralement auto-détecter le SRS des shapefiles et d'autres sources de données. Vous devrez peut être fournir un SRS pour certaines sources de données si TileMill s'avère incapable de détecter correctement leur valeur.
 
 ## Niveaux de zoom
 
-Interactive, tiled maps are designed and rendered at a number of different scalesA zoom level is a predefined scale at which a map is rendered. OpenStreetMap, Google Maps, and most other online maps zoom levels are scaled such that the entire world fills a 256x256 pixel tile at zoom level 0, and doubles in width & height at each subsequent zoom level.
+Interactive, tiled maps are designed and rendered at a number of different scales. A zoom level is a predefined scale at which a map is rendered. OpenStreetMap, Google Maps, and most other online maps zoom levels are scaled such that the entire world fills a 256x256 pixel tile at zoom level 0, and doubles in width & height at each subsequent zoom level.
 
 For example: at zoom level 6 you get a full view of a medium-sized country.  At zoom level 11 you’re looking at a metropolitan-region-sized area. At Zoom level 16 you’re down to a neighborhood scale.
 
@@ -38,7 +38,7 @@ For example: at zoom level 6 you get a full view of a medium-sized country.  At 
 
 If you’ve got TileMill running on your computer, you can access the web interface in any modern web browser at [http://localhost:8889](http://localhost:8889) (by default - this address is configurable). The main TileMill screen is a project browser, and you will see a few example projects there already to give you an idea of what TileMill can do. If you click on one of the projects you will be taken to the editing interface:
 
-![Screenshot](manual/project.png)
+![Screenshot](http://tilemill.com/manual/project.png)
 
 1. Main toolbar
 2. Map preview
@@ -48,7 +48,7 @@ If you’ve got TileMill running on your computer, you can access the web interf
 
 ### Barre d'outils principale
 
-![Screenshot](manual/toolbar.png)
+![Screenshot](http://tilemill.com/manual/toolbar.png)
 
 1. Settings button
 2. Project name
@@ -59,7 +59,7 @@ If you’ve got TileMill running on your computer, you can access the web interf
 
 ### Prévisualisation de carte
 
-![Screenshot](manual/map.png)
+![Screenshot](http://tilemill.com/manual/map.png)
 
 1. Map preview
 2. Zoom indicator & controls
@@ -75,7 +75,7 @@ When you save a project TileMill also saves the position and scale you were view
 
 ### Liste des couches
 
-![Screenshot](manual/tools.png)
+![Screenshot](http://tilemill.com/manual/tools.png)
 
 1. Add layer button
 2. Draggable area
@@ -93,7 +93,7 @@ For the purposes of styling, a layer can be one of four types of geometries - po
 
 ### Inspecteur des données cartographiqes
 
-![Screenshot](manual/inspector.png)
+![Screenshot](http://tilemill.com/manual/inspector.png)
 
 If you click on the magnifying glass icon of any layer, a drawer will slide in from the left and a table of data will appear. (It may take a few seconds for the data to show up if you are inspecting a complex file.)
 
@@ -109,7 +109,7 @@ Unlike what you may be used to from CSS or common word processor interfaces, the
 
 ### Editeur de code
 
-![Screenshot](manual/editor.png)
+![Screenshot](http://tilemill.com/manual/editor.png)
 
 1. Active stylesheet tab
 2. Delete stylesheet
@@ -234,7 +234,7 @@ Returning to our previous example, declaring the second rule will add a blue glo
        line-width: 4;
     }
 
-![Screenshot](manual/symbolizer-1.png)
+![Screenshot](http://tilemill.com/manual/symbolizer-1.png)
 
 Symbolizers are rendered in the order they are defined, so here the `::glow` (blue line) appears on top of the first style (red line).
 
@@ -249,7 +249,7 @@ Named symbolizer styles can still be overridden by further styles that reference
        line-color: #3F6;
     }
 
-![Screenshot](manual/symbolizer-2.png)
+![Screenshot](http://tilemill.com/manual/symbolizer-2.png)
 
 ### Complex line styles with multiple symbolizers
 
