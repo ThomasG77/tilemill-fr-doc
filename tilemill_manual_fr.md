@@ -65,47 +65,47 @@ Si vous avez TileMill en cours d'exécution sur votre ordinateur, vous pouvez ac
 2. Indicateur de zoom et contrôles
 3. Étendre la page en plein écran
 
-TileMill provides an interactive preview of the map as you are designing it. The map updates every time you save the project.
+TileMill donne une prévisualisation interactive de la carte au fur et à mesure de sa conception. La carte est mise à jour chaque fois que vous enregistrez le projet.
 
-You can pan around by clicking and dragging, and zoom in and out clicking on the + and - buttons. Zooming can also be controlled with your mouse wheel when the cursor is over the map, or by holding down the Shift key and drawing a box on the map of the area you wish to zoom to. The zoom level indicator displays the current zoom level, which is useful to know when designing and checking styles.
+Vous pouvez vous déplacer autour en cliquant, en déplaçant le contenu et zoomer/dézoomer en cliquant sur le boutons + et -. Le zoom peut également être géré avec la molette de la souris lorsque le curseur est sur ​​la carte, ou bien en maintenant la touche Maj enfoncée et en dessinant un cadre dans la zone où vous souhaitez effectuer le zoom. L'indicateur de niveau de zoom indique le niveau de zoom courant, ce qui est utile de savoir lors de la conception et la vérification des styles.
 
-The full-page toggle button expands the size of the preview, and collapses it back once you are in the big-preview mode.
+Le bouton pour passer en pleine page augmente la taille de l'aperçu, et il s'arrête lorsque vous êtes en mode grande-prévisualisation.
 
-When you save a project TileMill also saves the position and scale you were viewing the map at, so if you are only mapping a small area such as a city you won’t have to zoom in there every time you reopen the project.
+Lorsque vous enregistrez un projet, TileMill enregistre également la position et l'échelle que vous regardiez la carte. Si vous cartographiez seulement une petite région comme une ville, vous n'aurez pas à effectuer un zoom à chaque fois que vous rouvrez le projet.
 
 ### Liste des couches
 
 ![Screenshot](http://tilemill.com/manual/tools.png)
 
-1. Add layer button
-2. Draggable area
-3. Geometry icon
-4. IDs and classes
-5. Inspect layer data
-6. Edit layer
-7. Delete layer
+1. Bouton d'ajout de couche
+2. Zone déplaçable
+3. Icône indiquant la géométrie
+4. IDs et classes (comme en css)
+5. Inspecter la donnée de la couche
+6. Éditer la couche
+7. Supprimer la couche
 
-Clicking the add layer button opens a dialog where you can choose a shapefile, KML file, GeoJSON file, or GeoTIFF to add to the project. Each layer must have one ID (indicated by the `#` prefix), and may optionally have one or more classes (indicated by a `.` prefix). These are defined when the layer is added but can be changed any time by clicking the ‘Edit layer’ icon.
+Cliquer sur le bouton ’Ajouter une couche’ ouvre une boîte de dialogue où vous pouvez choisir un fichier shape, KML, GeoJSON ou GeoTIFF à ajouter au projet. Chaque couche doit avoir un seul ID (indiqué par le préfixe «#»), et peut de manière optionnelle avoir une ou plusieurs classes (indiquées par un "." préfixe). Elles sont définies lorsque la couche est ajoutée, mais peuvent être modifiées à tout moment en cliquant sur l'icône ’Modifier couche’.
 
-A layer can be easily reordered by clicking in the striped draggable area and moving it above or below another layer. Overlapping areas of layers will be rendered such that the highest layer on the list will cover layers beneath it.
+Une couche peut être facilement réorganisée en cliquant dans la zone rayée et en la déplaçant au dessus ou au dessous d'une autre couche. Les zones de recouvrement entre couches seront rendus de manière à ce que la couche positionnée en haut de la liste superpose les couches inférieures.
 
-For the purposes of styling, a layer can be one of four types of geometries - point, line, polygon, or raster. This is indicated by the geometry icon. Certain types of styles are only applicable to certain types of layers, so it’s good to know what each one is.
+Pour styler une couche, une couche peut être de quatre types de géométries - point, ligne, polygone, ou raster. Ceci est indiqué par l'icône de la géométrie. Certains types de styles ne s'appliquent qu'à certains types de couches : il est bon de savoir le type de géométrie de chacune.
 
-### Inspecteur des données cartographiqes
+### Inspecteur des données cartographiques
 
 ![Screenshot](http://tilemill.com/manual/inspector.png)
 
-If you click on the magnifying glass icon of any layer, a drawer will slide in from the left and a table of data will appear. (It may take a few seconds for the data to show up if you are inspecting a complex file.)
+Si vous cliquez sur l'icône Loupe de n'importe quelle couche, un panneau de données va apparaître (Cela peut prendre quelques secondes pour afficher les données si vous inspectez un fichier complexe).
 
 ### Palette de couleurs
 
-TileMill keeps track of all the colors you use in a project, and makes it easy to edit them and add new ones.
+TileMill garde la trace de toutes les couleurs que vous avez utilisé dans un projet, permet facilement de les modifier et d'en ajouter des nouvelles.
 
 ### Liste des polices de caractères
 
-Clicking on the ‘Fonts’ tab next to ‘Colors’ will switch the panel display to a list of all the system fonts Mapnik can find. You can filter the list by typing in the text box, or scroll through the list to find what you’re looking for. Clicking on a font will insert its name (in quotes) to the code where your cursor is.
+En cliquant sur ​​l'onglet ’Fonts’ à côté de ’Colors’ va basculer l'affichage du panneau pour montrer une liste de toutes les polices système que Mapnik trouve. Vous pouvez filtrer la liste en complétant la zone de texte, ou faire défiler la liste pour trouver ce que vous recherchez. Cliquer sur ​​une police va insérer son nom (entre guillemets) dans le code où votre curseur se trouve.
 
-Unlike what you may be used to from CSS or common word processor interfaces, there are no distinct properties for a font’s family (eg ‘Arial’), weight (eg bold), and style (eg italic). This is why, for example, “Arial Regular”, “Arial Bold”, and “Arial Italic” are listed individually.
+Contrairement à ce que vous peut être utilisé dans des CSS ou des traitement de texte, il n'y a pas de propriétés distinctes pour une famille de police («Arial», par exemple), une graisse (par exemple, gras), ou un style (par exemple, italique). C'est pourquoi, par exemple, "Arial Bold ", "Arial Bold", et "Arial Italique" sont listées séparément.
 
 ### Editeur de code
 
@@ -258,22 +258,22 @@ En utilisant une combinaison de différents tiretés et/ou de motifs, une large 
 
 *TODO: Exemples*
 
-# Further resources
+# Plus de ressources
 
 ## Sources de données SIG gratuites
 
-### Global
+### Globales
 
 1. [Téléchargements des données OpenStreetMap par Cloudmade](http://downloads.cloudmade.com/)
 2. [GADM Global Administrative Areas (Contours administratifs mondiaux)](http://gadm.org/)
 3. [Natural Earth](http://www.naturalearthdata.com/) (une grande partie est incluse dans TileMill)
 4. [Données d'élevation SRTM du CGIAR](http://srtm.csi.cgiar.org/)
 
-### National
+### Nationales
 1. [Données TIGER du bureau du Recensement US/Shapefiles linéaires](http://www.census.gov/geo/www/tiger/tgrshp2009/tgrshp2009.html)
 2. [GeoGratis - Ressources Naturelles du Canada](http://www.geogratis.cgdi.gc.ca/)
 
-### Regional & Local
+### Régionales & locales
 
 1. [Catalogue SIG du district de Columbia](http://dcatlas.dcgis.dc.gov/catalog/)
 2. [Données ouvertes de Ottawa](http://www.ottawa.ca/online_services/opendata/index_en.html)
