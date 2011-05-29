@@ -8,19 +8,19 @@ TileMill permet aussi d'exporter directement dans le format [MBTiles](http://www
 
 TileMill est un projet de la société [Development Seed](http://www.developmentseed.org) et son code source est [disponible sur GitHub](http://github.com/mapbox/tilemill).
 
-# Eléments de base
+# Éléments de base
 
 ## Les SIG
 
 Si vous n'avez jamais travaillé avec un SIG ou en cartographie avant, il y a un certain nombre de bases avant d''aller plus loin avec TileMill.
 
-Un SIG signifie Système d'Information Géographique et fait référence à tous les système qui doivent enregistrer, analyser ou représenter des données relatives à une localisation. TileMill se concentre sur la partie ‘représentation’ de cette definition, mais il fournit quelques outils pour une anlyse basique. La cartographie est l'activité de production de carte.
+Un SIG signifie Système d'Information Géographique et fait référence à tous les système qui doivent enregistrer, analyser ou représenter des données relatives à une localisation. TileMill se concentre sur la partie ‘représentation’ de cette définition, mais il fournit quelques outils pour une analyse basique. La cartographie est l'activité de production de carte.
 
 ## Projections cartographiques
 
 **Les projections** font références aux méthodes utilisées pour représenter un objet en trois dimensions comme la Terre sur une surface en deux dimensions comme une feuille de papier ou un écran d'ordinateur. Bien que les cartes TileMill soient toujours projetées en ‘Web Mercator’, il vous arrivera de croiser des sources de données qui utilisent [d'autres projections](http://en.wikipedia.org/wiki/Map_projection).
 
-**Les coordonnées systèmes** fournissent un moyen de décrire un emplacement particulier sur Terre. Par exempel, vous pouvez indiquer la position de Washington, DC avec sa latitude et sa longitude approximatives `(38,-77)` Une autre manière de décrire cette position pourrait être d'indiquer le *nombre de mètres entre Washington, DC par rapport au nord et à l'est de l'équateur* - et certains systèmes de coordonnées fonctionnent exactement comme cela.
+**Les coordonnées systèmes** fournissent un moyen de décrire un emplacement particulier sur Terre. Par exemple, vous pouvez indiquer la position de Washington, DC avec sa latitude et sa longitude approximatives `(38,-77)` Une autre manière de décrire cette position pourrait être d'indiquer le *nombre de mètres entre Washington, DC par rapport au nord et à l'est de l'équateur* - et certains systèmes de coordonnées fonctionnent exactement comme cela.
 
 La **chaîne SRS de [proj4](http://trac.osgeo.org/proj/)** (Spatial Referencing System) combine ces deux concepts et fournit en même temps une description de la projection et des coordonnées système d'une source de données. Par exemple, la chaîne SRS de proj4 [WGS84](http://en.wikipedia.org/wiki/World_Geodetic_System) ressemble à ceci:
 
@@ -30,40 +30,40 @@ TileMill peut généralement auto-détecter le SRS des shapefiles et d'autres so
 
 ## Niveaux de zoom
 
-Interactive, tiled maps are designed and rendered at a number of different scales. A zoom level is a predefined scale at which a map is rendered. OpenStreetMap, Google Maps, and most other online maps zoom levels are scaled such that the entire world fills a 256x256 pixel tile at zoom level 0, and doubles in width & height at each subsequent zoom level.
+Interactives, les cartes tuilées sont conçues et générées à un certain nombre d'échelles différentes. Un niveau de zoom est une échelle prédéfinie à laquelle une carte est générée. OpenStreetMap, Google Maps, et la plupart des solutions de cartographie en ligne ont des niveaux de zoom qui sont échelonnés de façon que le monde entier soit compris dans une tuile de 256x256 pixels au zoom de niveau 0, et que la largeur et la hauteur double à chaque niveau de zoom supplémentaire.
 
-For example: at zoom level 6 you get a full view of a medium-sized country.  At zoom level 11 you’re looking at a metropolitan-region-sized area. At Zoom level 16 you’re down to a neighborhood scale.
+Par exemple, au niveau du zoom 6, vous obtenez une vue complète d'un pays de taille moyenne. Au niveau de zoom 11, vous regardez une zone de taille métropolitaine. Au niveau Zoom 16, vous êtes descendu à l'échelle d'un quartier.
 
 # Vue rapide de l'interface utilisateur
 
-If you’ve got TileMill running on your computer, you can access the web interface in any modern web browser at [http://localhost:8889](http://localhost:8889) (by default - this address is configurable). The main TileMill screen is a project browser, and you will see a few example projects there already to give you an idea of what TileMill can do. If you click on one of the projects you will be taken to the editing interface:
+Si vous avez TileMill en cours d'exécution sur votre ordinateur, vous pouvez accéder à l'interface web dans n'importe quel navigateur moderne, à [http://localhost:8889](http://localhost:8889) (par défaut, cette adresse est configurable). L'écran principal permet de naviguer dans les projets, et vous verrez des exemples de projets qui vous permettront de vous faire des possibilités offertes par TileMill. Si vous cliquez sur un des projets, vous arriverez sur l'interface d'édition:
 
 ![Screenshot](http://tilemill.com/manual/project.png)
 
-1. Main toolbar
-2. Map preview
-3. Layers list
-4. Colors & fonts palette
-5. Code editor
+1. Barre de menu principale
+2. Prévisualisation de carte
+3. Liste des couches
+4. Palettes des couleurs et des polices
+5. Éditeur de code
 
 ### Barre d'outils principale
 
 ![Screenshot](http://tilemill.com/manual/toolbar.png)
 
-1. Settings button
-2. Project name
-3. Save button
-4. Export button - export your map to a PNG image or to an MBTiles file; you can also view past exports
-5. Project settings - adjust project settings including tile image format
-6. Close project - returns to the main screen
+1. Bouton de configuration
+2. Nom du projet
+3. Bouton de sauvegarde
+4. Bouton d'export - exporte votre carte dans une image PNG ou dans un fichier MBTiles; vous pouvez aussi voir les exports antérieurs.
+5. Configuration du projet - ajuste les paramètres en incluant le format d'image tuilé
+6. Ferme le projet - retourne à l'écran principal
 
 ### Prévisualisation de carte
 
 ![Screenshot](http://tilemill.com/manual/map.png)
 
-1. Map preview
-2. Zoom indicator & controls
-3. Full-page toggle
+1. Prévisualisation de carte
+2. Indicateur de zoom et contrôles
+3. Étendre la page en plein écran
 
 TileMill provides an interactive preview of the map as you are designing it. The map updates every time you save the project.
 
@@ -130,6 +130,7 @@ Stylesheets can be re-ordered by clicking and dragging their tabs within the tab
 Layers are how sets of data are added to a map in TileMill. Each  layer references a single shapefile, geoJSON file, KML file, geoTIFF, or (soon) PostGIS database query. Multiple layers are combined over top of each other to create the final map - if you are familiar with layers in Photoshop or other graphics software the concept is very similar. TileMill currently supports creating maps with four data formats.
 
 ### Les fichiers shape ESRI
+
 Usually referred to simply as ‘shapefile’, this is de facto standard file format for portable GIS data storage and is supported by most GIS software applications. The tricky part is that a single 'shapefile' is actually a collection of at least three files (possibly more). The required components are:
 
 1. `file.shp` contains the geographical point, line, or polygon information
@@ -251,32 +252,32 @@ Named symbolizer styles can still be overridden by further styles that reference
 
 ![Screenshot](http://tilemill.com/manual/symbolizer-2.png)
 
-### Complex line styles with multiple symbolizers
+### Styles de ligne complexe avec plusieurs "symboliseurs"
 
-Using combinations of different dasharrays and/or pattern images, a wide variety of complex line styles can be achieved.
+En utilisant une combinaison de différents tiretés et/ou de motifs, une large variété de styles même très complexe peut être créée pour représenter les éléments linéaires.
 
-*TODO: Examples*
+*TODO: Exemples*
 
 # Further resources
 
-## Free sources of GIS data
+## Sources de données SIG gratuites
 
 ### Global
 
-1. [Cloudmade OpenStreetMap Downloads](http://downloads.cloudmade.com/)
-2. [GADM Global Administrative Areas](http://gadm.org/)
-3. [Natural Earth](http://www.naturalearthdata.com/) (much of this data is included in TileMill)
-4. [SRTM Digital Elevation from CGIAR](http://srtm.csi.cgiar.org/)
+1. [Téléchargements des données OpenStreetMap par Cloudmade](http://downloads.cloudmade.com/)
+2. [GADM Global Administrative Areas (Contours administratifs mondiaux)](http://gadm.org/)
+3. [Natural Earth](http://www.naturalearthdata.com/) (une grande partie est incluse dans TileMill)
+4. [Données d'élevation SRTM du CGIAR](http://srtm.csi.cgiar.org/)
 
 ### National
-1. [US Census Bureau TIGER/Line Shapefiles](http://www.census.gov/geo/www/tiger/tgrshp2009/tgrshp2009.html)
-2. [Natural Resources Canada GeoGratis](http://www.geogratis.cgdi.gc.ca/)
+1. [Données TIGER du bureau du Recensement US/Shapefiles linéaires](http://www.census.gov/geo/www/tiger/tgrshp2009/tgrshp2009.html)
+2. [GeoGratis - Ressources Naturelles du Canada](http://www.geogratis.cgdi.gc.ca/)
 
 ### Regional & Local
 
-1. [District of Columbia GIS Catalog](http://dcatlas.dcgis.dc.gov/catalog/)
-2. [OpenData Ottawa](http://www.ottawa.ca/online_services/opendata/index_en.html)
-3. [OpenData Paris (français)](http://opendata.paris.fr/opendata/jsp/site/Portal.jsp)
+1. [Catalogue SIG du district de Columbia](http://dcatlas.dcgis.dc.gov/catalog/)
+2. [Données ouvertes de Ottawa](http://www.ottawa.ca/online_services/opendata/index_en.html)
+3. [Données ouvertes de la ville de Paris (français)](http://opendata.paris.fr/opendata/jsp/site/Portal.jsp)
 
 
 
