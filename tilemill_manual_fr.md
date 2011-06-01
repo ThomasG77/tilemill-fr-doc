@@ -111,37 +111,37 @@ Contrairement à ce que vous peut être utilisé dans des CSS ou des traitement 
 
 ![Screenshot](http://tilemill.com/manual/editor.png)
 
-1. Active stylesheet tab
-2. Delete stylesheet
-3. Inactive stylesheet tabs
-4. New stylesheet button
-5. MSS syntax reference
-6. Line numbers
-7. Text area
+1. Onglet de la feuille de style active
+2. Supprimer la feuille de style
+3. Onglets avec feuilles de style inactives
+4. Bouton de création d'nouvelle feuille de style
+5. Référence pour la syntaxe MSS
+6. Numéros de ligne
+7. Zone de texte
 
-TileMill provides an integrated code editor for editing the map stylesheets. This editor will make sure you write valid code, coloring correctly formatted text as you write it (syntax highlighting) and highlighting any errors if you try to save an invalid file.
+TileMill fournit un éditeur de code intégré pour modifier les feuilles de style de la carte. L'éditeur vérifie que vous écrivez du code valide, colorie le texte correctement formaté dynamiquement (coloration syntaxique) et indique les erreurs lorsque vous essayez d'enregistrer un fichier non valide.
 
-As your map style becomes more complex, you may wish to keep things organized by splitting the style across multiple files. New stylesheets can be added with the + button on the tab bar and entering a name for the file. Though not required, there is a convention of using the file extention `.mss` for ‘map stylesheet’.
+Au fur et à mesure que les styles de votre carte deviennent complexes, vous pouvez séparés les styles pour les répartir dans plusieurs fichiers. De nouvelles feuilles de style peuvent être ajoutées avec le bouton + de la barre d'onglets et en entrant un nom pour le fichier. Même si ce n'est pas une obligation, la convention est de nommer l'extension de ce fichier `. mss` pour les ‘feuille de style’ de la carte.
 
-Stylesheets can be re-ordered by clicking and dragging their tabs within the tab bar. Note that just like CSS, the order can have an effect on the way a map is rendered - if two styles conflict, the one that is defined last will be applied. Here, ‘last’ means closest to the bottom of the file in the tab furthest to the right.
+Les feuilles de style peuvent être réorganisées en cliquant et déplaçant leurs onglets au sein de la barre d'onglets. Notez que, comme avec les CSS, l'ordre peut avoir un effet sur la manière dont une carte est générée. Si deux styles rentrent en conflit, c''est celui qui est défini en dernier qui sera utilisé. Ici, ‘le dernier‘ signifie le style dans la feuille de style le plus à droite et le plus bas dans le fichier.
 
 # Ajouter des couches
 
-Layers are how sets of data are added to a map in TileMill. Each  layer references a single shapefile, geoJSON file, KML file, geoTIFF, or (soon) PostGIS database query. Multiple layers are combined over top of each other to create the final map - if you are familiar with layers in Photoshop or other graphics software the concept is very similar. TileMill currently supports creating maps with four data formats.
+Les couches indiquent la façon dont l'ensemble de données est ajouté à une carte dans TileMill. Chaque couche fait références à une seule source de données : shapefile, GeoJSON, KML, GeoTIFF et (bientôt) la base de données PostGIS. C'est la superposition des différentes couches qui permet d'obtenir la carte finale. Si vous êtes familier avec les calques dans Photoshop ou autres logiciels de graphisme le concept est assez similaire. TileMill pour le moment permet de créer des cartes avec quatre format de données.
 
 ### Les fichiers shape ESRI
 
-Usually referred to simply as ‘shapefile’, this is de facto standard file format for portable GIS data storage and is supported by most GIS software applications. The tricky part is that a single 'shapefile' is actually a collection of at least three files (possibly more). The required components are:
+Qualifié aussi avec le nom ‘shapefile’, c'est le format standard de fait pour échanger les données SIG et il est supporté par la plupart des logiciels SIG. La chose trompeuse est que ce qu'on qualifie de fichier 'shapefile' est en fait un collection constituée au minimum de trois fichiers (et parfois plus). Les fichiers nécessaires sont:
 
-1. `file.shp` contains the geographical point, line, or polygon information
-2. `file.dbf` a database of information describing objects in the .shp file
-3. `file.shx` an index file
+1. `fichier.shp` qui contient l'information géographique ponctuelle, linéaire ou surfacique
+2. `fichier.dbf` qui est un fichier de données tabulaires décrivant les objets dans le fichier .shp
+3. `fichier.shx` qui est un fichier d'index
 
-Because TileMill is designed to handle files across the Internet and dealing with collections of files complicates that somewhat, shapefiles must be stored in a zip file before they can be added to a TileMill project.
+Parce que TileMill est conçu pour gérer les fichiers par Internet et gérer beaucoup de fichiers compliqués, les shapefiles doivent être compressé dans un fichier zip avant d'être ajouté dans un projet TileMill.
 
 ### GeoJSON
 
-GeoJSON is a specification for storing spatial data in [JavaScript Object Notation](http://en.wikipedia.org/wiki/JSON), a compact plain-text format. The format can store points, lines, and polygons.
+GeoJSON est une spécification pour stocker les données spatiales en [JavaScript Object Notation](http://en.wikipedia.org/wiki/JSON), un format de fichier texte très léger. Ce format permet de stocker des points, des lignes, et des polygones.
 
 ### KML
 
