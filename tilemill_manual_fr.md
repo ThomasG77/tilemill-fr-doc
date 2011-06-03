@@ -137,7 +137,7 @@ Qualifié aussi avec le nom ‘shapefile’, c'est le format standard de fait po
 2. `fichier.dbf` qui est un fichier de données tabulaires décrivant les objets dans le fichier .shp
 3. `fichier.shx` qui est un fichier d'index
 
-Parce que TileMill est conçu pour gérer les fichiers par Internet et gérer beaucoup de fichiers compliqués, les shapefiles doivent être compressé dans un fichier zip avant d'être ajouté dans un projet TileMill.
+Parce que TileMill est conçu pour gérer les fichiers par Internet et gérer beaucoup de fichiers compliqués, les shapefiles doivent être compressés dans un fichier zip avant d'être ajouté dans un projet TileMill.
 
 ### GeoJSON
 
@@ -145,15 +145,15 @@ GeoJSON est une spécification pour stocker les données spatiales en [JavaScrip
 
 ### KML
 
-Keyhole Markup Language, or KML, is a standard geospatial data format that was originally developed for and popularized by Google Earth *1*. TileMill has limited support of this format - point and polygon styles will be ignored, and other features such as images and 3D models are not supported. There is also no support for the compressed KMZ format at this time.
+KML est un format standard de données géospatiales qui a été initialement développé et popularisé par Google Earth *1*. TileMill a un support limité de ce format - les styles des points et des polygones seront ignorées, et d'autres fonctionnalités comme les images et les modèles 3D ne sont pas pris en charge. Il n'y a pas de support aussi pour le format compressé KMZ pour le moment.
 
-- *1: Google acquired this project in 2004 from Keyhole, Inc., hence the name*
+- *1: Google a acquis ce projet en 2004 de la société Keyhole, Inc., d'où le nom*
 
 ### GeoTIFF
 
-GeoTIFF is a popular format for storing geospatial raster imagery such as satellite photography, remote sensing imagery, and digital elevation models.
+GeoTIFF est un format les plus utilisés pour stocker des images raster géospatiales comme des photographies satellite, des images de télédétection, et des modèles de données d’élévation.
 
-Since Mapnik is currently unable to reproject raster data sources, to load them in TileMill you must ensure they are in Web Mercator projection. This can be done using the `gdalwarp` tool. For example, to reproject a Natural Earth world geotiff from its native WGS84, you would use a command such as
+Comme Mapnik est pour le moment incapable de reprojecter des sources de données raster, pour les charger dans TileMill, vous devez vous assurez qu'elles sont dans la projection Web Mercator. Cela peut être réalisé en utilisant l'outil `gdalwarp`. Par exemple, pour reprojeter un geotiff issu de Natural Earth depuis sa projection native en  WGS84, vous devriez utiliser une commande de ce type
 
     gdalwarp -s_srs EPSG:4326 -t_srs "+proj=merc +a=6378137 +b=6378137 \
       +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null \
@@ -161,30 +161,30 @@ Since Mapnik is currently unable to reproject raster data sources, to load them 
       -te -20037508.34 -20037508.34 20037508.34 20037508.34 \
       input_file.tif output_file.tif
 
-<!-- TODO: explain the options -->
+<!-- TODO: Expliquer les options -->
 
 # Langage de styles
 
-If you are familiar with web design with Cascading Stylesheets (CSS) the format of TileMill’s styling language will look familiar, though the exact properties are quite different.
+Si vous êtes familier du webdesign avec les CSS (Cascading Stylesheets), le format du langage de style de TileMill va vous sembler familier, bien que les propriétés exactes soient quelques peu différentes.
 
 ## Symboles
 
-Mapnik, the rendering software TileMill is built upon, provides a number of fundamental style types out of which to build complex styles. Each type is called a symbolizer, and has its own set of configurable properties.
+Mapnik, le logiciel de rendu sur lequel s'appuie TileMill fournit un certain nombre de types de styles fondamentaux pour construire des styles complexes. Chaque type est appelé une symbologie, et a son propre ensemble de propriétés configurables.
 
-There are currently 10 different symbolizers available in Mapnik, each of which can be applied to a certain type or types of geometry:
+Il ya actuellement 10 symbologies différentes disponibles dans Mapnik, dont chacune peut être appliquée à un ou plusieurs types de géométrie:
 
-1. Line (for lines & polygons)
-2. Polygon (for polygons*)
-3. Point[c] (for points)
-4. Text (for points, lines, and polygons)
-5. Shield (for points & lines)
-6. Line Pattern (for lines & polygons)
-7. Polygon Pattern (for polygons*)
-8. Raster (for rasters)
-9. Markers (for points, lines, & polygons)
+1. Line (pour les lignes & les polygones)
+2. Polygon (pour les polygones*)
+3. Point[c] (pour les points)
+4. Text (pour les points, les lignes, & les polygones)
+5. Shield (pour les points & les lignes)
+6. Line Pattern (pour les lignes & les polygones)
+7. Polygon Pattern (pour les polygones*)
+8. Raster (pour les rasters)
+9. Markers (pour les points, les lignes, & les polygones)
 10. Buildings
 
-*Note that these polygon symbolizers can technically be assigned to line geometries, but usually with unexpected or unsatisfactory results and is not really recommended.*
+*Notez que ces symbologies de polygones peuvent techniquement associées à des géométries linéaires, mais généralement on obtient des résultats innatendus ou insatisfaisants et ce n'est pas vraiment recommandé.*
 
 Multiple symbolizers can be applied to the same layer - some common combinations are line & polygons, point & text, line & markers, and line & line pattern.
 
@@ -252,7 +252,7 @@ Named symbolizer styles can still be overridden by further styles that reference
 
 ![Screenshot](http://tilemill.com/manual/symbolizer-2.png)
 
-### Styles de ligne complexe avec plusieurs "symboliseurs"
+### Styles de ligne complexe avec plusieurs symbologies
 
 En utilisant une combinaison de différents tiretés et/ou de motifs, une large variété de styles même très complexe peut être créée pour représenter les éléments linéaires.
 
