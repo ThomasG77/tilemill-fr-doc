@@ -192,17 +192,17 @@ Il ya actuellement 10 symbologies différentes disponibles dans Mapnik, dont cha
 
 De multiples symbologies peuvent être appliquées à la même couche - les combinaisons les plus communes sont "line" & "polygons", "points" & "text", "line & "markers", et "line" et "line pattern".
 
-Une symbologie n'est pas présente sur la carte, tant qu'elle n'a pas un style défini, mais une fois que des propriétés de style sont ajoutées à la feuille de style par défaut, elles seront appliquées à toutes les symbologies de même type sauf si on surcharge les propriétés. Par exemple, la couleur de symbologie "line" par défaut est noir, si vous affectez une `line-width` sur une couche, alors cette ligne sera noir sauf si vous lui assignez une couleur différente.
+Une symbologie n'est pas présente sur la carte, tant qu'elle n'a pas un style défini, mais une fois que des propriétés de style sont ajoutées à la feuille de style par défaut, elles seront appliquées à toutes les symbologies de même type sauf si on surcharge les propriétés. Par exemple, la couleur de symbologie "line" par défaut est noir, si vous affectez une ’line-width’ sur une couche, alors cette ligne sera noir sauf si vous lui assignez une couleur différente.
 
-### La symbologie "line"
+### Les symbologies "line"
 
 Ce style de ligne peut s'appliquer à des lignes ou à des polygones.
 
 ## Symbologies multiples
 
-Une couche seule n'est pas limité à une symbologie de chaque type. Par exemple, plusieurs symbologies de semi-transparentes de type "line" peuvent être attribuées à un polygone pour obtenir un effet de lueur ou d'ombre. De multiples symbologies "text" peuvent être attribuées au même point avec des positions différentes afin d'utiliser des étiquettes pour plusieurs champs.
+Une couche seule n'est pas limité à une symbologie de chaque type. Par exemple, plusieurs symbologies semi-transparentes de type "line" peuvent être attribuées à un polygone pour obtenir un effet de lueur ou d'ombre. De multiples symbologies "text" peuvent être attribuées au même point avec des positions différentes afin d'utiliser des étiquettes pour plusieurs champs.
 
-Normalement, lorsque vous assigner un style à une couche, le style s'applique à une symbologie par défaut qui est créé. Dans l'exemple suivant, la deuxième règle l'emporte sur le premier parce qu'ils s'appliquent tous les deux à la symbologie par défaut.
+Normalement, lorsque vous assigner un style à une couche, le style s'applique à une symbologie par défaut qui est créée. Dans l'exemple suivant, la deuxième règle l'emporte sur la première parce qu'elles s'appliquent toutes les deux à la symbologie par défaut.
 
     #layer {
        line-color: #C00;
@@ -226,7 +226,7 @@ Vous pouvez déclarer explicitement n'importe quelle nombre de nouvelles symbolo
 
 Notez que `newsymbol` n'est pas un mot clé, mais un nom arbitraire choisi par l'utilisateur. Pour vous aider à garder la trace des différents symbologies, vous pouvez nommer les symbologies supplémentaires qui ont un sens adapté à la situation. Quelques exemples: `#road::casing`, `#coastline::glow_inner`, `#building::shadow`.
 
-En revenant à notre exemple précédent, déclarer la seconde règle va ajouter une effet de lueur bleu par dessus la ligne rouge au lieu de la remplacer:
+En revenant à notre exemple précédent, déclarer la seconde règle va ajouter une effet de lueur bleue par dessus la ligne rouge au lieu de la remplacer:
 
     #layer {
        line-color: #C00;
@@ -242,8 +242,6 @@ En revenant à notre exemple précédent, déclarer la seconde règle va ajouter
 ![Screenshot](http://tilemill.com/manual/symbolizer-1.png)
 
 Le rendu des symbologies se fait dans l'ordre dans lequel elles ont été définies, donc ici le `::glow` (ligne bleue) apparaît au dessus du premier style (ligne rouge).
-
-Symbolisant styles nommés peuvent encore être remplacées par des styles outre que la référence le nom symbolisant même. Dans cet exemple, la couleur de la ligne sera verte, pas verte sur fond jaune.
 
 Les styles de symbologies nommés peuvent être remplacés par d'autres styles faisant référence au même nom de symbologie. Dans cet exemple, la couleur de ligne sera verte, et non verte sur jaune.
 
@@ -288,32 +286,32 @@ En utilisant une combinaison de différents tiretés et/ou de motifs, une large 
 
 
 - [Introduction](#introduction)
-- [Éléments de base](#basics)
-  - [Les SIG](#gis)
-  - [Projections cartographiques](#map-projections)
-  - [Niveaux de zoom](#zoom-levels)
-- [Vue rapide de l'interface utilisateur](#interface-tour)
-  - [Barre d'outils principale](#main-toolbar)
-  - [Prévisualisation de carte](#map-preview)
-  - [Liste des couches](#layers-list)
-  - [Inspecteur des couches cartographiques](#layer-data-inspector)
-  - [Palette de couleurs](#color-palette)
-  - [Liste des polices de caractères](#fonts-list)
-  - [Editeur de code](#code-editor)
-- [Ajouter des couches](#adding-layers)
-  - [Les fichiers shape ESRI](#esri-shapefile)
+- [Éléments de base](#elements-de-base)
+  - [Les SIG](#les-sig)
+  - [Projections cartographiques](#projections-cartographiques)
+  - [Niveaux de zoom](#niveaux-de-zoom)
+- [Vue rapide de l'interface utilisateur](#vue-rapide-de-l-interface-utilisateur)
+  - [Barre d'outils principale](#barre-d-outils-principale)
+  - [Prévisualisation de carte](#previsualisation-de-carte)
+  - [Liste des couches](#liste-des-couches)
+  - [Inspecteur des couches cartographiques](#inspecteur-des-couches-cartographiques)
+  - [Palette de couleurs](#palette-de-couleurs)
+  - [Liste des polices de caractères](#liste-des-polices-de-caracteres)
+  - [Editeur de code](#editeur-de-code)
+- [Ajouter des couches](#ajouter-des-couches)
+  - [Les fichiers shape ESRI](#les-fichiers-shape-esri)
   - [GeoJSON](#geojson)
   - [KML](#kml)
   - [GeoTIFF](#geotiff)
-  - [PostGIS](#PostGIS)
-- [Langage de styles](#the-styling-language)
-  - [Symbologies](#symbolizers)
-  - [La symbologie "line"](#the-line-symbolizers)
-  - [Symbologies multiples](#multiples-symbolizers)
-  - [Styles de ligne complexe avec plusieurs symbologies](#complex-line-styles-with-multiple-symbolizers)
-- [Plus de ressources](#further-resources)
-  - [Sources de données SIG gratuites](#free-sources-of-gis-data)
-  - [Globales](#global)
-  - [Nationales](#national)
-  - [Régionales & locales](#regional-local)
+  - [PostGIS](#postgis)
+- [Langage de styles](#langage-de-styles)
+  - [Symbologies](#symbologies)
+  - [Les symbologies "line"](#les-symbologies-line-)
+  - [Symbologies multiples](#symbologies-multiples)
+  - [Styles de ligne complexe avec plusieurs symbologies](#styles-de-ligne-complexe-avec-plusieurs-symbologies)
+- [Plus de ressources](#plus-de-ressources)
+  - [Sources de données SIG gratuites](#sources-de-donnees-sig-gratuites)
+  - [Globales](#globales)
+  - [Nationales](#nationales)
+  - [Régionales & locales](#regionales-locales)
 
