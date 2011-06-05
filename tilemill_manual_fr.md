@@ -127,7 +127,7 @@ Les feuilles de style peuvent être réorganisées en cliquant et déplaçant le
 
 # Ajouter des couches
 
-Les couches indiquent la façon dont l'ensemble de données est ajouté à une carte dans TileMill. Chaque couche fait références à une seule source de données : shapefile, GeoJSON, KML, GeoTIFF et (bientôt) la base de données PostGIS. C'est la superposition des différentes couches qui permet d'obtenir la carte finale. Si vous êtes familier avec les calques dans Photoshop ou autres logiciels de graphisme le concept est assez similaire. TileMill pour le moment permet de créer des cartes avec quatre format de données.
+Les couches indiquent la façon dont l'ensemble de données est ajouté à une carte dans TileMill. Chaque couche fait références à une seule source de données : shapefile, GeoJSON, KML, GeoTIFF et base de données PostGIS. C'est la superposition des différentes couches qui permet d'obtenir la carte finale. Si vous êtes familier avec les calques dans Photoshop ou autres logiciels de graphisme le concept est assez similaire. TileMill pour le moment permet de créer des cartes avec quatre format de données.
 
 ### Les fichiers shape ESRI
 
@@ -163,6 +163,10 @@ Comme Mapnik est pour le moment incapable de reprojecter des sources de données
 
 <!-- TODO: Expliquer les options -->
 
+### PostGIS
+
+[PostGIS](http://postgis.refractions.net/) est une extension pour PostgreSQL qui permet de socker des objets géographiques dans une base de données. Elle fournit des fonctions spéciales et des index pour interroger et manipuler des données spatialesfor et peut être utilisée comme un outil puissant de stockage/d'analyse. Depuis TileMill, vous pouvez vous connecter à une base de données PostGIS et lancer des requêtes directement depuisl'application. Regardez l'onglet PostGIS dans le panneau "Add layer".
+
 # Langage de styles
 
 Si vous êtes familier du webdesign avec les CSS (Cascading Stylesheets), le format du langage de style de TileMill va vous sembler familier, bien que les propriétés exactes soient quelques peu différentes.
@@ -173,32 +177,32 @@ Mapnik, le logiciel de rendu sur lequel s'appuie TileMill fournit un certain nom
 
 Il ya actuellement 10 symbologies différentes disponibles dans Mapnik, dont chacune peut être appliquée à un ou plusieurs types de géométrie:
 
-1. Line (pour les lignes & les polygones)
-2. Polygon (pour les polygones*)
-3. Point[c] (pour les points)
-4. Text (pour les points, les lignes, & les polygones)
-5. Shield (pour les points & les lignes)
-6. Line Pattern (pour les lignes & les polygones)
-7. Polygon Pattern (pour les polygones*)
-8. Raster (pour les rasters)
-9. Markers (pour les points, les lignes, & les polygones)
-10. Buildings
+1. "Line" (pour les lignes & les polygones)
+2. "Polygon" (pour les polygones*)
+3. "Point[c]" (pour les points)
+4. "Text" (pour les points, les lignes, & les polygones)
+5. "Shield" (pour les points & les lignes)
+6. "Line Pattern" (pour les lignes & les polygones)
+7. "Polygon Pattern" (pour les polygones*)
+8. "Raster" (pour les rasters)
+9. "Markers" (pour les points, les lignes, & les polygones)
+10. "Buildings"
 
 *Notez que ces symbologies de polygones peuvent techniquement associées à des géométries linéaires, mais généralement on obtient des résultats innatendus ou insatisfaisants et ce n'est pas vraiment recommandé.*
 
-Multiple symbolizers can be applied to the same layer - some common combinations are line & polygons, point & text, line & markers, and line & line pattern.
+De multiples symbologies peuvent être appliquées à la même couche - les combinaisons les plus communes sont "line" & "polygons", "points" & "text", "line & "markers", et "line" et "line pattern".
 
-A symbolizer is not present on the map unless it has a style defined, but once one of its style properties is added to the stylesheet default values will apply to the other properties for that symbolizer unless overridden. For example, the default line symbolizer color is black, so if you assign a `line-width` to a layer that line will be black unless you also assign a different color.
+Une symbologie n'est pas présente sur la carte, tant qu'elle n'a pas un style défini, mais une fois que des propriétés de style sont ajoutées à la feuille de style par défaut, elles seront appliquées à toutes les symbologies de même type sauf si on surcharge les propriétés. Par exemple, la couleur de symbologie "line" par défaut est noir, si vous affectez une `line-width` sur une couche, alors cette ligne sera noir sauf si vous lui assignez une couleur différente.
 
-### The line symbolizer
+### La symbologie "line"
 
-Line styles can be applied to line or polygon geometries.
+Ce style de ligne peut s'appliquer à des lignes ou à des polygones.
 
-## Multiple symbolizers
+## Symbologies multiples
 
-A single layer is not limited to one of each symbolizer type. For example, multiple semi-transparent line symbolizers can be assigned to a polygon to achieve a soft glow or shadow effect. Multiple text symbolizers can be assigned to the same point with different offsets to label it with more than one field.
+Une couche seule n'est pas limité à une symbologie de chaque type. Par exemple, plusieurs symbologies de semi-transparentes de type "line" peuvent être attribuées à un polygone pour obtenir un effet de lueur ou d'ombre. De multiples symbologies "text" peuvent être attribuées au même point avec des positions différentes afin d'utiliser des étiquettes pour plusieurs champs.
 
-Normally when you assign a style to a layer, the style applies to a default symbolizer that is created. In the following example, the second rule overrides the first one because they both apply to the default symbolizer.
+Normalement, lorsque vous assigner un style à une couche, le style s'applique à une symbologie par défaut qui est créé. Dans l'exemple suivant, la deuxième règle l'emporte sur le premier parce qu'ils s'appliquent tous les deux à la symbologie par défaut.
 
     #layer {
        line-color: #C00;
@@ -211,7 +215,7 @@ Normally when you assign a style to a layer, the style applies to a default symb
        line-width: 2;
     }
 
-You can explicitly declare any number of new symbolizers for a layer that will be rendered in addition to styles they would otherwise conflict with. New symbolizers are defined using a double colon syntax inspired by [pseudo-elements](http://www.w3.org/TR/css3-selectors/#pseudo-elements) in CSS3:
+Vous pouvez déclarer explicitement n'importe quelle nombre de nouvelles symbologies pour une couche qui sera générée en plus des styles avec lesquels elle serait rentré en conflit. Les nouvelles symbologies sont définies en utilisant une syntaxe utilisant deux "deux points" inspirée par les [pseudo-éléments](http://www.w3.org/TR/css3-selectors/ pseudo-éléments #) dans CSS3:
 
     #layer {
        /* styles for the default symbolizers */
@@ -220,9 +224,9 @@ You can explicitly declare any number of new symbolizers for a layer that will b
        /* styles for a new symbolizer named ‘newsymbol’ */
     }
 
-Note that `newsymbol` is not a special keyword but an arbitrary name chosen by the user. To help keep track of different symbolizers you can name additional symbolizers whatever makes sense for the situation. Some examples: `#road::casing`, `#coastline::glow_inner`, `#building::shadow`.
+Notez que `newsymbol` n'est pas un mot clé, mais un nom arbitraire choisi par l'utilisateur. Pour vous aider à garder la trace des différents symbologies, vous pouvez nommer les symbologies supplémentaires qui ont un sens adapté à la situation. Quelques exemples: `#road::casing`, `#coastline::glow_inner`, `#building::shadow`.
 
-Returning to our previous example, declaring the second rule will add a blue glow on top of the red line instead of replacing it:
+En revenant à notre exemple précédent, déclarer la seconde règle va ajouter une effet de lueur bleu par dessus la ligne rouge au lieu de la remplacer:
 
     #layer {
        line-color: #C00;
@@ -237,9 +241,11 @@ Returning to our previous example, declaring the second rule will add a blue glo
 
 ![Screenshot](http://tilemill.com/manual/symbolizer-1.png)
 
-Symbolizers are rendered in the order they are defined, so here the `::glow` (blue line) appears on top of the first style (red line).
+Le rendu des symbologies se fait dans l'ordre dans lequel elles ont été définies, donc ici le `::glow` (ligne bleue) apparaît au dessus du premier style (ligne rouge).
 
-Named symbolizer styles can still be overridden by further styles that reference the same symbolizer name. In this example, the line color will be green, not green-on-yellow.
+Symbolisant styles nommés peuvent encore être remplacées par des styles outre que la référence le nom symbolisant même. Dans cet exemple, la couleur de la ligne sera verte, pas verte sur fond jaune.
+
+Les styles de symbologies nommés peuvent être remplacés par d'autres styles faisant référence au même nom de symbologie. Dans cet exemple, la couleur de ligne sera verte, et non verte sur jaune.
 
     .border::highlight {
        line-color: #FF0;
