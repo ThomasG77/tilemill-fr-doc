@@ -1,6 +1,6 @@
 # Introduction
 
-TileMill est un outil pour les cartographes permettant concevoir rapidement et facilement des cartes pour le Web en utilisant des données personnalisées. Il est construit sur la base de la puissante librairie de rendu cartographique open-source [Mapnik](http://www.mapnik.org) - la même que celle qu'[OpenStreetMap](http://www.openstreetmap.org/) et [MapQuest]( http://www.mapquest.com) utilisent pour faire certaines de leurs cartes. TileMill n'est pas destiné à être un outil de cartographie généraliste, il se concentre plutôt sur la rationalisation et la simplification d'un certain nombre de cas d'utilisation.
+TileMill est un outil pour les cartographes permettant de concevoir rapidement et facilement des cartes pour le Web en utilisant des données personnalisées. Il est construit sur la base de la puissante librairie de rendu cartographique open-source [Mapnik](http://www.mapnik.org) - la même que celle qu'[OpenStreetMap](http://www.openstreetmap.org/) et [MapQuest]( http://www.mapquest.com) utilisent pour faire certaines de leurs cartes. TileMill n'est pas destiné à être un outil de cartographie généraliste, il se concentre plutôt sur la rationalisation et la simplification d'un certain nombre de cas d'utilisation.
 
 Pour ceux qui viennent du milieu ou la cartographie ou des SIG, la plus grande provocation que fait TileMill est la projection finale - Les cartes TileMill sont en effet, toujours projetées en "Web Mercator. Comme son nom l'indique, cette projection est populaire avec les applications de cartographie web, et donc les cartes créées avec TileMill peuvent être affichées en utilisant l'API Google Maps, OpenLayers, et un certain nombre d'autres projets.
 
@@ -85,13 +85,13 @@ Lorsque vous enregistrez un projet, TileMill enregistre également la position e
 6. Éditer la couche
 7. Supprimer la couche
 
-Cliquer sur le bouton ’Ajouter une couche’ ouvre une boîte de dialogue où vous pouvez choisir un fichier shape, KML, GeoJSON ou GeoTIFF à ajouter au projet. Chaque couche doit avoir un seul ID (indiqué par le préfixe «#»), et peut de manière optionnelle avoir une ou plusieurs classes (indiquées par un "." préfixe). Elles sont définies lorsque la couche est ajoutée, mais peuvent être modifiées à tout moment en cliquant sur l'icône ’Modifier couche’.
+Cliquer sur le bouton ’Ajouter une couche’ ouvre une boîte de dialogue où vous pouvez choisir un fichier shape, KML, GeoJSON ou GeoTIFF à ajouter au projet. Chaque couche doit avoir un seul ID (indiqué par le préfixe «#»), et peut de manière optionnelle avoir une ou plusieurs classes (indiquées par un préfixe "."). Elles sont définies lorsque la couche est ajoutée, mais peuvent être modifiées à tout moment en cliquant sur l'icône ’Modifier couche’.
 
-Une couche peut être facilement réorganisée en cliquant dans la zone rayée et en la déplaçant au dessus ou au dessous d'une autre couche. Les zones de recouvrement entre couches seront rendus de manière à ce que la couche positionnée en haut de la liste superpose les couches inférieures.
+Une couche peut être facilement réorganisée en cliquant dans la zone rayée et en la déplaçant au dessus ou au dessous d'une autre couche. Les zones de recouvrement entre couches seront rendues de manière à ce que la couche positionnée en haut de la liste soit par dessus les couches inférieures.
 
 Pour styler une couche, une couche peut être de quatre types de géométries - point, ligne, polygone, ou raster. Ceci est indiqué par l'icône de la géométrie. Certains types de styles ne s'appliquent qu'à certains types de couches : il est bon de savoir le type de géométrie de chacune.
 
-### Inspecteur des données cartographiques
+### Inspecteur des couches cartographiques
 
 ![Screenshot](http://tilemill.com/manual/inspector.png)
 
@@ -103,7 +103,7 @@ TileMill garde la trace de toutes les couleurs que vous avez utilisé dans un pr
 
 ### Liste des polices de caractères
 
-En cliquant sur ​​l'onglet ’Fonts’ à côté de ’Colors’ va basculer l'affichage du panneau pour montrer une liste de toutes les polices système que Mapnik trouve. Vous pouvez filtrer la liste en complétant la zone de texte, ou faire défiler la liste pour trouver ce que vous recherchez. Cliquer sur ​​une police va insérer son nom (entre guillemets) dans le code où votre curseur se trouve.
+En cliquant sur ​​l'onglet ’Fonts’ à côté de ’Colors’ l'affichage du panneau va basculer pour montrer une liste de toutes les polices système que Mapnik trouve. Vous pouvez filtrer la liste en complétant la zone de texte, ou faire défiler la liste pour trouver ce que vous recherchez. Cliquer sur ​​une police va insérer son nom (entre guillemets) dans le code où votre curseur se trouve.
 
 Contrairement à ce que vous peut être utilisé dans des CSS ou des traitement de texte, il n'y a pas de propriétés distinctes pour une famille de police («Arial», par exemple), une graisse (par exemple, gras), ou un style (par exemple, italique). C'est pourquoi, par exemple, "Arial Bold ", "Arial Bold", et "Arial Italique" sont listées séparément.
 
@@ -114,20 +114,20 @@ Contrairement à ce que vous peut être utilisé dans des CSS ou des traitement 
 1. Onglet de la feuille de style active
 2. Supprimer la feuille de style
 3. Onglets avec feuilles de style inactives
-4. Bouton de création d'nouvelle feuille de style
+4. Bouton de création de nouvelle feuille de style
 5. Référence pour la syntaxe MSS
 6. Numéros de ligne
 7. Zone de texte
 
-TileMill fournit un éditeur de code intégré pour modifier les feuilles de style de la carte. L'éditeur vérifie que vous écrivez du code valide, colorie le texte correctement formaté dynamiquement (coloration syntaxique) et indique les erreurs lorsque vous essayez d'enregistrer un fichier non valide.
+TileMill fournit un éditeur de code intégré pour modifier les feuilles de style de la carte. L'éditeur vérifie que vous écrivez du code valide, colorie le texte correctement formaté de manière dynamique (coloration syntaxique) et indique les erreurs lorsque vous essayez d'enregistrer un fichier non valide.
 
-Au fur et à mesure que les styles de votre carte deviennent complexes, vous pouvez séparés les styles pour les répartir dans plusieurs fichiers. De nouvelles feuilles de style peuvent être ajoutées avec le bouton + de la barre d'onglets et en entrant un nom pour le fichier. Même si ce n'est pas une obligation, la convention est de nommer l'extension de ce fichier `. mss` pour les ‘feuille de style’ de la carte.
+Au fur et à mesure que les styles de votre carte deviennent complexes, vous pouvez séparer les styles pour les répartir dans plusieurs fichiers. De nouvelles feuilles de style peuvent être ajoutées avec le bouton + de la barre d'onglets et en entrant un nom pour le fichier. Même si ce n'est pas une obligation, la convention est de nommer l'extension de ce fichier ‘. mss‘ pour les ‘feuille de style’ de la carte.
 
 Les feuilles de style peuvent être réorganisées en cliquant et déplaçant leurs onglets au sein de la barre d'onglets. Notez que, comme avec les CSS, l'ordre peut avoir un effet sur la manière dont une carte est générée. Si deux styles rentrent en conflit, c''est celui qui est défini en dernier qui sera utilisé. Ici, ‘le dernier‘ signifie le style dans la feuille de style le plus à droite et le plus bas dans le fichier.
 
 # Ajouter des couches
 
-Les couches indiquent la façon dont l'ensemble de données est ajouté à une carte dans TileMill. Chaque couche fait références à une seule source de données : shapefile, GeoJSON, KML, GeoTIFF et base de données PostGIS. C'est la superposition des différentes couches qui permet d'obtenir la carte finale. Si vous êtes familier avec les calques dans Photoshop ou autres logiciels de graphisme le concept est assez similaire. TileMill pour le moment permet de créer des cartes avec quatre format de données.
+Les couches indiquent la façon dont l'ensemble de données est ajouté à une carte dans TileMill. Chaque couche fait référence à une seule source de données : shapefile, GeoJSON, KML, GeoTIFF et base de données PostGIS. C'est la superposition des différentes couches qui permet d'obtenir la carte finale. Si vous êtes familier avec les calques dans Photoshop ou autres logiciels de graphisme, le concept est assez similaire. TileMill pour le moment permet de créer des cartes avec quatre format de données.
 
 ### Les fichiers shape ESRI
 
@@ -145,13 +145,13 @@ GeoJSON est une spécification pour stocker les données spatiales en [JavaScrip
 
 ### KML
 
-KML est un format standard de données géospatiales qui a été initialement développé et popularisé par Google Earth *1*. TileMill a un support limité de ce format - les styles des points et des polygones seront ignorées, et d'autres fonctionnalités comme les images et les modèles 3D ne sont pas pris en charge. Il n'y a pas de support aussi pour le format compressé KMZ pour le moment.
+KML est un format standard de données géospatiales qui a été initialement développé et popularisé par Google Earth *1*. TileMill a un support limité de ce format - les styles des points et des polygones seront ignorés, et d'autres fonctionnalités comme les images et les modèles 3D ne sont pas pris en charge. Il n'y a pas de support aussi pour le format compressé KMZ pour le moment.
 
 - *1: Google a acquis ce projet en 2004 de la société Keyhole, Inc., d'où le nom*
 
 ### GeoTIFF
 
-GeoTIFF est un format les plus utilisés pour stocker des images raster géospatiales comme des photographies satellite, des images de télédétection, et des modèles de données d’élévation.
+GeoTIFF est un format les plus utilisé pour stocker des images raster géospatiales comme des photographies satellite, des images de télédétection, et des modèles de données d’élévation.
 
 Comme Mapnik est pour le moment incapable de reprojecter des sources de données raster, pour les charger dans TileMill, vous devez vous assurez qu'elles sont dans la projection Web Mercator. Cela peut être réalisé en utilisant l'outil `gdalwarp`. Par exemple, pour reprojeter un geotiff issu de Natural Earth depuis sa projection native en  WGS84, vous devriez utiliser une commande de ce type
 
@@ -165,13 +165,13 @@ Comme Mapnik est pour le moment incapable de reprojecter des sources de données
 
 ### PostGIS
 
-[PostGIS](http://postgis.refractions.net/) est une extension pour PostgreSQL qui permet de socker des objets géographiques dans une base de données. Elle fournit des fonctions spéciales et des index pour interroger et manipuler des données spatialesfor et peut être utilisée comme un outil puissant de stockage/d'analyse. Depuis TileMill, vous pouvez vous connecter à une base de données PostGIS et lancer des requêtes directement depuisl'application. Regardez l'onglet PostGIS dans le panneau "Add layer".
+[PostGIS](http://postgis.refractions.net/) est une extension pour PostgreSQL qui permet de stocker des objets géographiques dans une base de données. Elle fournit des fonctions spéciales et des index pour interroger et manipuler des données spatiales et peut être utilisée comme un outil puissant de stockage/d'analyse. Depuis TileMill, vous pouvez vous connecter à une base de données PostGIS et lancer des requêtes directement depuis l'application. Regardez l'onglet PostGIS dans le panneau "Add layer".
 
 # Langage de styles
 
 Si vous êtes familier du webdesign avec les CSS (Cascading Stylesheets), le format du langage de style de TileMill va vous sembler familier, bien que les propriétés exactes soient quelques peu différentes.
 
-## Symboles
+## Symbologies
 
 Mapnik, le logiciel de rendu sur lequel s'appuie TileMill fournit un certain nombre de types de styles fondamentaux pour construire des styles complexes. Chaque type est appelé une symbologie, et a son propre ensemble de propriétés configurables.
 
@@ -288,30 +288,32 @@ En utilisant une combinaison de différents tiretés et/ou de motifs, une large 
 
 
 - [Introduction](#introduction)
-- [Basics](#basics)
-  - [GIS](#gis)
-  - [Map projections](#map-projections)
-  - [Zoom levels](#zoom-levels)
-- [Interface tour](#interface-tour)
-  - [Main toolbar](#main-toolbar)
-  - [Map preview](#map-preview)
-  - [Layers list](#layers-list)
-  - [Layer data inspector](#layer-data-inspector)
-  - [Color palette](#color-palette)
-  - [Fonts list](#fonts-list)
-  - [Code editor](#code-editor)
-- [Adding layers](#adding-layers)
-  - [ESRI Shapefile](#esri-shapefile)
+- [Éléments de base](#basics)
+  - [Les SIG](#gis)
+  - [Projections cartographiques](#map-projections)
+  - [Niveaux de zoom](#zoom-levels)
+- [Vue rapide de l'interface utilisateur](#interface-tour)
+  - [Barre d'outils principale](#main-toolbar)
+  - [Prévisualisation de carte](#map-preview)
+  - [Liste des couches](#layers-list)
+  - [Inspecteur des couches cartographiques](#layer-data-inspector)
+  - [Palette de couleurs](#color-palette)
+  - [Liste des polices de caractères](#fonts-list)
+  - [Editeur de code](#code-editor)
+- [Ajouter des couches](#adding-layers)
+  - [Les fichiers shape ESRI](#esri-shapefile)
   - [GeoJSON](#geojson)
   - [KML](#kml)
   - [GeoTIFF](#geotiff)
-- [The styling language](#the-styling-language)
-  - [Symbolizers](#symbolizers)
-  - [The line symbolizer](#the-line-symbolizers)
-  - [Complex line styles with multiple symbolizers](#complex-line-styles-with-multiple-symbolizers)
-- [Further resources](#further-resources)
-  - [Free sources of GIS data](#free-sources-of-gis-data)
-  - [Global](#global)
-  - [National](#national)
-  - [Regional & Local](#regional-local)
+  - [PostGIS](#PostGIS)
+- [Langage de styles](#the-styling-language)
+  - [Symbologies](#symbolizers)
+  - [La symbologie "line"](#the-line-symbolizers)
+  - [Symbologies multiples](#multiples-symbolizers)
+  - [Styles de ligne complexe avec plusieurs symbologies](#complex-line-styles-with-multiple-symbolizers)
+- [Plus de ressources](#further-resources)
+  - [Sources de données SIG gratuites](#free-sources-of-gis-data)
+  - [Globales](#global)
+  - [Nationales](#national)
+  - [Régionales & locales](#regional-local)
 
