@@ -6,6 +6,53 @@
 	<style type="text/css">
            /* Short css a minimum style */
 
+      body {
+          font: 15px/20px Georgia,serif;
+           background: #EEEEEE;
+      }
+
+      a {
+          color: #888888;
+          text-decoration: none;
+      }
+
+      a:hover {
+          color: #882244;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+          font-size: 20px;
+          color: #882244;
+          letter-spacing: -1px;
+      }
+
+      #menu ul{
+          margin-left: -30px;
+      }
+
+      ul li {
+          background: url("http://tilemill.com/images/sprite.png") no-repeat scroll 0 -240px transparent;
+          padding-left: 20px;
+          list-style: none outside none;
+      }
+
+      pre code {
+          background-color: #EEEEEE !important;
+          border: medium none !important;
+          font: 12px 'Bitstream Vera Sans Mono','Courier',monospace !important;
+          padding: 0 !important;
+      }
+
+      div.column-75 {
+          background-color: #F8F8F8;
+          padding: 0.7em;
+      }
+
+      div.column-25 {
+          background-color: #F8F8F8;
+          padding: 0.7em;
+      }
+
       .column-75 {
           float: left;
           width: 480px;
@@ -13,7 +60,7 @@
 
       .column-25 {
           float: right;
-          width: 240px;
+          width: 230px;
       }
       #main {
           margin-left: auto;
@@ -219,7 +266,6 @@ Il ya actuellement 10 symbologies différentes disponibles dans Mapnik, dont cha
 3. "Point[c]" (pour les points)
 4. "Text" (pour les points, les lignes, & les polygones)
 5. "Shield" (pour les points & les lignes)
-
 6. "Line Pattern" (pour les lignes & les polygones)
 7. "Polygon Pattern" (pour les polygones*)
 8. "Raster" (pour les rasters)
